@@ -65,13 +65,13 @@ function App() {
             <p>Loading...</p>
           ) : (
             <>
-              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-2">
+              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-1 mx-auto w-auto">
                 <h1 className="bg-pink-200 font-bold text-2xl inline-block ">
                   {poke?.name}
                 </h1>
               </div>
               <button
-                className="m-2 w-40 py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
+                className="w-auto my-2 py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
                 onClick={addFav}
               >
                 Add to Fev
@@ -85,12 +85,12 @@ function App() {
                   alt={poke.name}
                 />
               )}
-              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-2">
+              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-2 w-full mx-auto">
                 <h1 className="bg-pink-200 font-bold text-2xl inline-block">
                   Ability
                 </h1>
               </div>
-              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-2">
+              <div className="text-center border p-2 bg-white rounded-lg shadow-md m-2 w-full mx-auto">
                 <ul className="text-center ">
                   {poke?.abilities?.map((abil, idx) => (
                     <div key={idx}>
@@ -101,20 +101,22 @@ function App() {
                   ))}
                 </ul>
               </div>
-              <div className="flex justify-center">
-                <button
-                  className="m-2 w-40 py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
-                  onClick={prevPoke}
-                >
-                  Previous
-                </button>
-                <button
-                  className="m-2 w-40 py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
-                  onClick={nextPoke}
-                >
-                  Next
-                </button>
-              </div>
+              <center>
+                <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ">
+                  <button
+                    className="w-auto py-2 px-5 my-1  bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
+                    onClick={prevPoke}
+                  >
+                    Previous
+                  </button>
+                  <button
+                    className="w-auto py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
+                    onClick={nextPoke}
+                  >
+                    Next
+                  </button>
+                </div>
+              </center>
             </>
           )}
         </div>
@@ -124,8 +126,13 @@ function App() {
               Fav to poke
             </h2>
           </div>
-          {fav.length > 0 ? <FavPoke fav={fav} /> : <div className="flex h-full justify-center items-center"><p>No fav poke</p></div>}
-          
+          {fav.length > 0 ? (
+            <FavPoke fav={fav} />
+          ) : (
+            <div className="flex h-full justify-center items-center">
+              <p>No fav poke</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

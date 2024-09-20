@@ -12,7 +12,7 @@ function FavPoke({ fav }) {
             {data.name}
           </h3>
           <img
-            className="bg-green-200 w-full h-auto"
+            className="bg-green-200 w-full h-auto mx-auto "
             src={data?.sprites?.other?.home?.front_default}
             alt={data.name}
           />
