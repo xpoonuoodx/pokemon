@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
 import FavPoke from "./component/FavPoke";
+import { Link } from 'react-router-dom';
 
 function App() {
   const [poke, setPoke] = useState("");
@@ -135,6 +136,7 @@ function App() {
           )}
         </div>
       </div>
+      <Link to="/page-b">Go to Page B</Link>
     </div>
   );
 }
